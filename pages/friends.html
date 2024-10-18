@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zvuks</title>
+  <link rel="stylesheet" href="./../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+  <header class="container pt-4 mx-auto flex justify-between ">
+    <h2 class="text-xl font-bold">Звукс</h2>
+    <div class="flex gap-6 text-xl items-center">
+      <a href="./../index.html" class="hidden sm:block"><i class="fa-solid fa-music hover:text-blue-500 transition"></i></a>
+      <a href="friends.html" class="hidden sm:block"><i class="fa-solid fa-user-group hover:text-blue-500 transition"></i></a>
+      <a href="chats.html" class="hidden sm:block"><i class="fa-regular fa-comment hover:text-blue-500 transition"></i></a>
+      <div x-data="{ isActive: false }" class="relative">
+        <div class="inline-flex items-center overflow-hidden rounded-md bg-white">
+          <a
+            href="#"
+            class="text-sm/none text-gray-600 hover:bg-gray-50 hover:text-gray-700"
+          >
+            <img
+            x-on:click="isActive = !isActive"
+            class="rounded-full h-10 w-10" src="./../img/hamster.jpg" alt="">
+          </a>
+        </div>
+
+        <div
+          class="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg"
+          role="menu"
+          x-cloak
+          x-transition
+          x-show="isActive"
+          x-on:click.away="isActive = false"
+          x-on:keydown.escape.window="isActive = false"
+        >
+          <div class="p-2">
+            <a
+              href="profile.html"
+              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              role="menuitem"
+            >
+              Профиль
+            </a>
+
+            <a
+              href="admin.html"
+              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              role="menuitem"
+            >
+              Админ-панель
+            </a>
+
+            <a
+            href="./../index.html"
+            class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+            role="menuitem"
+          >
+            Музыка
+          </a>
+
+            <a
+            href="friends.html"
+            class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+            role="menuitem"
+          >
+            Друзья
+          </a>
+
+            <a
+            href="chats.html"
+            class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+            role="menuitem"
+          >
+            Чаты
+          </a>
+
+            <a
+            href="login.html"
+            class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:text-white  hover:bg-red-400 transition"
+            role="menuitem"
+          >
+            Выйти
+          </a>
+          </div>
+        </div>
+      </div>
+      </a>
+    </div>
+  </header>
+  <main class="container mx-auto mt-8">
+    <div class="flex flex-col  items-center md:items-start">
+      <h2 class="text-3xl font-semibold text-center md:text-left">Друзья</h2>
+      <div class="flex gap-4 mt-6 flex-col items-center sm:flex-row">
+        <input type="text" class="py-1.5 px-4 rounded-lg border border-black text-xs outline-none" placeholder="Имя...">
+        <button class="py-1 px-8 max-sm:w-1/2 rounded-lg bg-blue-600  text-white font-medium hover:bg-blue-500 transition">Найти</button>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-center md:justify-normal gap-12 mt-6">
+      <div class="flex flex-col items-center gap-3 rounded border border-black w-40 h-80">
+        <img src="./../img/mus2.jpg" class="h-1/2 w-full object-cover rounded-t">
+        <h3 class="text-xl font-semibold text-center">pmnd</h3>
+        <a href="chats.html" class="py-1 px-8 rounded-lg bg-blue-600  text-white font-medium hover:bg-blue-500 transition">Написать</a>
+        <button class="py-1 px-8 rounded-lg bg-black  text-white font-medium hover:bg-red-500 transition">Удалить</button>
+      </div>
+      <div class="flex flex-col items-center gap-3 rounded border border-black w-40 h-80">
+        <img src="./../img/lazer.jpg" class="h-1/2 w-full object-cover rounded-t">
+        <h3 class="text-xl font-semibold text-center">lazerdimon</h3>
+        <a href="chats.html" class="py-1 px-8 rounded-lg bg-blue-600  text-white font-medium hover:bg-blue-500 transition">Написать</a>
+        <button class="py-1 px-8 rounded-lg bg-black  text-white font-medium hover:bg-red-500 transition">Удалить</button>
+      </div>
+      <div class="flex flex-col items-center gap-3 rounded border border-black w-40 h-80">
+        <img src="./../img/timmy.png" class="h-1/2 w-full object-cover rounded-t ">
+        <h3 class="text-xl font-semibold text-center">ogtimmy</h3>
+        <a href="chats.html" class="py-1 px-8 rounded-lg bg-blue-600  text-white font-medium hover:bg-blue-500 transition">Написать</a>
+        <button class="py-1 px-8 rounded-lg bg-black  text-white font-medium hover:bg-red-500 transition">Удалить</button>
+      </div>
+      <div class="flex flex-col items-center gap-3 rounded border border-black w-40 h-80">
+        <img src="./../img/rosticson.jpg" class="h-1/2 w-full object-cover rounded-t">
+        <h3 class="text-xl font-semibold text-center">oblik</h3>
+        <a href="chats.html" class="py-1 px-8 rounded-lg bg-blue-600  text-white font-medium hover:bg-blue-500 transition">Написать</a>
+        <button class="py-1 px-8 rounded-lg bg-black  text-white font-medium hover:bg-red-500 transition">Удалить</button>
+      </div>
+      <div class="flex flex-col items-center  gap-3 rounded border border-black w-40 h-80">
+        <img src="./../img/black.jpg" class="h-1/2 w-full object-cover rounded-t">
+        <h3 class="text-xl font-semibold text-center">lilmouse</h3>
+        <a href="chats.html" class="py-1 px-8 rounded-lg bg-green-700  text-white font-medium hover:bg-green-600 transition">Добавить</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zvuks</title>
+  <link rel="stylesheet" href="./../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>  
+
+</head>
+<body>
+  <header class="container pt-4 mx-auto flex justify-between ">
+    <h2 class="text-xl font-bold">Звукс</h2>
+    <div class="flex gap-6 text-xl items-center">
+      <a href="./../index.html" class="hidden sm:block"><i class="fa-solid fa-music hover:text-blue-500 transition"></i></a>
+      <a href="friends.html" class="hidden sm:block"><i class="fa-solid fa-user-group hover:text-blue-500 transition"></i></a>
+      <a href="chats.html" class="hidden sm:block"><i class="fa-regular fa-comment hover:text-blue-500 transition"></i></a>
+      <div x-data="{ isActive: false }" class="relative">
+        <div class="inline-flex items-center overflow-hidden rounded-md bg-white">
+          <a
+            href="#"
+            class="text-sm/none text-gray-600 hover:bg-gray-50 hover:text-gray-700"
+          >
+            <img
+            x-on:click="isActive = !isActive" 
+            class="rounded-full h-10 w-10" src="./../img/hamster.jpg" alt="">
+          </a>
+        </div>
+
+        <div
+          class="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg"
+          role="menu"
+          x-cloak
+          x-transition
+          x-show="isActive"
+          x-on:click.away="isActive = false"
+          x-on:keydown.escape.window="isActive = false"
+        >
+          <div class="p-2">
+            <a
+              href="profile.html"
+              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              role="menuitem"
+            >
+              Профиль
+            </a>
+
+            <a
+              href="admin.html"
+              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              role="menuitem"
+            >
+              Админ-панель
+            </a>
+
+            <a
+            href="./../index.html"
+            class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+            role="menuitem"
+          >
+            Музыка
+          </a>
+
+            <a
+            href="friends.html"
+            class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+            role="menuitem"
+          >
+            Друзья
+          </a>
+
+            <a
+            href="chats.html"
+            class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+            role="menuitem"
+          >
+            Чаты
+          </a>
+
+            <a
+            href="login.html"
+            class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:text-white  hover:bg-red-400 transition"
+            role="menuitem"
+          >
+            Выйти
+          </a>
+          </div>
+        </div>
+      </div>
+      </a>
+    </div>
+  </header>
+  <main class="main-container mt-8">
+    <h2 class="text-2xl font-bold text-center md:text-left">Добавить песню</h2>
+
+    <div class="flex gap-12 md:gap-48 items-center md:items-start flex-col md:flex-row mt-12">
+      <div class="flex flex-col max-sm:flex-col max-md:items-center max-md:flex-row  gap-8">
+        <img src="./../img/obloga.png" alt="Загрузите обложку" class="rounded-lg border border-black w-80 h-72 object-cover hover:opacity-90 cursor-pointer">
+        <img src="./../img/sound.png" alt="Загрузите песню" class="rounded-lg border border-black w-80 h-32 object-cover hover:opacity-80 cursor-pointer">
+      </div>
+
+      <form class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <label class="font-medium">Название песни</label>
+          <input type="text" class="p-1 border border-black rounded-lg outline-none">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="font-medium">Дата выпуска</label>
+          <input type="datetime-local" class="p-1 border border-black rounded-lg outline-none">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="font-medium">Гости</label>
+          <input type="text" class="p-1 border border-black rounded-lg outline-none">
+        </div>
+
+        <a href="./../index.html" class="p-2 rounded-lg bg-black text-white font-medium hover:opacity-80 transition text-center">Добавить</a>
+      </form>
+    </div>
+
+
+  </main>
+</body>
+</html>

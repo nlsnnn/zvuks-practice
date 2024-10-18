@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zvuks</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+  <div class="flex flex-col h-screen ">
+    <header class="container pt-4 mx-auto flex justify-between ">
+      <h2 class="text-xl font-bold">Звукс</h2>
+      <div class="flex gap-6 text-xl items-center">
+        <a href="index.html" class="hidden sm:block"><i class="fa-solid fa-music hover:text-blue-500 transition"></i></a>
+        <a href="pages/friends.html" class="hidden sm:block"><i class="fa-solid fa-user-group hover:text-blue-500 transition"></i></a>
+        <a href="pages/chats.html" class="hidden sm:block"><i class="fa-regular fa-comment hover:text-blue-500 transition"></i></a>
+        <div x-data="{ isActive: false }" class="relative">
+          <div class="inline-flex items-center overflow-hidden rounded-md bg-white">
+            <a
+              href="#"
+              class="text-sm/none text-gray-600 hover:bg-gray-50 hover:text-gray-700"
+            >
+              <img
+              x-on:click="isActive = !isActive"
+              class="rounded-full h-10 w-10" src="img/hamster.jpg" alt="avatar">
+            </a>
+          </div>
+
+          <div
+            class="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg"
+            role="menu"
+            x-cloak
+            x-transition
+            x-show="isActive"
+            x-on:click.away="isActive = false"
+            x-on:keydown.escape.window="isActive = false"
+          >
+            <div class="p-2">
+              <a
+                href="pages/profile.html"
+                class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                role="menuitem">
+                Профиль
+              </a>
+
+              <a
+                href="pages/admin.html"
+                class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                role="menuitem">
+                Админ-панель
+              </a>
+
+              <a
+              href="index.html"
+              class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              role="menuitem">
+                Музыка
+              </a>
+
+              <a
+              href="pages/friends.html"
+              class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              role="menuitem">
+                Друзья
+              </a>
+
+            <a
+              href="pages/chats.html"
+              class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              role="menuitem">
+                Чаты
+            </a>
+
+              <a
+              href="pages/login.html"
+              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:text-white  hover:bg-red-400 transition"
+              role="menuitem">
+                Выйти
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto mt-8 flex-grow">
+      <div class="flex flex-col xl:flex-row items-center gap-8 xl:gap-32  2xl:gap-80">
+        <div class="flex flex-col sm:flex-row gap-12">
+          <div class="p-8 flex flex-col gap-6 border border-black rounded-xl">
+            <div class="flex flex-col gap-2 items-center">
+              <h5 class="text-4xl font-bold text-center active" id="mainMus" onclick="changeCategory(event)">Главная</h5>
+              <h5 class="text-xl opacity-40 cursor-pointer hover:opacity-100 hover:text-blue-300 " id="myMus" onclick="changeCategory(event)">Моя музыка</h5>
+            </div>
+            <input type="text" class="p-2 rounded-lg border border-black text-xs outline-none" placeholder="Название...">
+          </div>
+
+          <div class="flex flex-col  w-80 border border-black rounded-lg">
+            <img src="img/cat.jpg" class="rounded-t-lg h-36 object-cover" alt="obloga">
+            <div class="flex flex-col gap-2 items-center">
+              <h4>shitalent - green trap</h4>
+              <span id="ProgressLabel" class="sr-only">Loading</span>
+
+              <span
+                role="progressbar"
+                aria-labelledby="ProgressLabel"
+                aria-valuenow="75"
+                class="w-3/4 rounded-full bg-gray-200 cursor-pointer"
+              >
+                <span class="flex h-3 rounded-full bg-indigo-600 hover:bg-indigo-500 transition" style="width: 75%"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          <div class="flex flex-col gap-3">
+            <a href="pages/add_song.html" class="py-2 px-10 bg-black rounded-lg text-white font-medium hover:bg-opacity-85 transition">Добавить песню</a>
+            <a href="pages/add_album.html" class="py-2 px-10 bg-black rounded-lg text-white font-medium hover:bg-opacity-85 transition text-center">Добавить альбом</a>
+          </div>
+
+          <div class="p-4 flex flex-col w-80 h-64 gap-3 items-center border border-black rounded-xl">
+            <h3 class="text-2xl font-bold">Друзья</h3>
+
+            <div class="w-full relative">
+              <div class="swiper multiple-slide-carousel swiper-container relative">
+               <div class="swiper-wrapper mt-2 mb-8">
+                 <div class="swiper-slide">
+                  <div class="flex flex-col gap-2">
+                    <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                      <img src="img/timmy.png" class="rounded-full w-6 h-6" alt="avatar">
+                      <span>ogtimmy</span>
+                    </div>
+                    <div class="p-1 flex gap-2 w-full   bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                      <img src="img/black.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                      <span>lilmouse</span>
+                    </div>
+                    <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                      <img src="img/slon.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                      <span>elephon</span>
+                    </div>
+                  </div>
+                 </div>
+                 <div class="swiper-slide">
+                  <div class="flex flex-col gap-2">
+                    <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                      <img src="img/lazer.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                      <span>lazerdimon</span>
+                    </div>
+                    <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                      <img src="img/rosticson.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                      <span>oblik</span>
+                    </div>
+                    <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                      <img src="img/rhino.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                      <span>bigbob</span>
+                    </div>
+                  </div>
+                 </div>
+                 <div class="swiper-slide">
+                  <div class="bg-indigo-50 rounded-2xl  flex justify-center items-center">
+                   <div class="flex flex-col gap-2">
+                     <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                       <img src="img/lazer.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                       <span>lolik</span>
+                     </div>
+                     <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                       <img src="img/rosticson.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                       <span>user1</span>
+                     </div>
+                     <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                       <img src="img/rhino.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                       <span>user2</span>
+                     </div>
+                   </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="bg-indigo-50 rounded-2xl  flex justify-center items-center">
+                   <div class="flex flex-col gap-2">
+                     <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                       <img src="img/lazer.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                       <span>dolik</span>
+                     </div>
+                     <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                       <img src="img/rosticson.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                       <span>user3</span>
+                     </div>
+                     <div class="p-1 flex gap-2 w-full  bg-gray-200 hover:bg-gray-300 rounded cursor-pointer transition">
+                       <img src="img/rhino.jpg" class="rounded-full w-6 h-6" alt="avatar">
+                       <span>user4</span>
+                     </div>
+                   </div>
+                  </div>
+                </div>
+               </div>
+               <div class="absolute flex justify-center items-center m-auto left-0 right-0 w-fit bottom-14">
+                 <button id="slider-button-left" class="swiper-button-previ group !p-2 flex justify-center items-center border border-solid border-blue-600 !w-12 !h-12 transition-all duration-500 rounded-full  hover:bg-blue-600 hover:text-white !-translate-x-16" data-carousel-prev>
+                  <i class="fa-solid fa-arrow-left"></i>
+                 </button>
+                 <button id="slider-button-right" class="swiper-button-nexti group !p-2 flex justify-center items-center border border-solid border-blue-600 !w-12 !h-12 transition-all duration-500 rounded-full hover:bg-blue-600 hover:text-white !translate-x-16" data-carousel-next>
+                  <i class="fa-solid fa-arrow-right"></i>
+                 </button>
+               </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="mt-10 flex justify-center gap-4 md:gap-2 md:justify-between flex-wrap">
+        <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+          <img src="img/slon.jpg" class="w-16 h-16 rounded-l-lg" alt="obloga">
+          <div class="flex flex-col gap-1">
+            <p class="font-medium text-xs">elephon</p>
+            <span class="font-bold text-lg">SLONIK</span>
+          </div>
+          <div class="flex flex-col gap-2 text-xs p-2">
+            <a href="#"><i class="fa-solid fa-heart hover:text-red-400 transition"></i></a>
+            <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+          </div>
+        </div>
+        <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+          <img src="img/cat.jpg" class="w-16 h-16 rounded-l-lg" alt="obloga">
+          <div class="flex flex-col gap-1">
+            <p class="font-medium text-xs">shitalent</p>
+            <span class="font-bold text-lg">green trap</span>
+          </div>
+          <div class="flex flex-col gap-2 text-xs p-2">
+            <a href="#"><i class="fa-solid fa-heart hover:text-red-400 transition"></i></a>
+            <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+          </div>
+        </div>
+        <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+          <img src="img/sur.jpg" class="w-16 h-16 rounded-l-lg" alt="obloga">
+          <div class="flex flex-col gap-1">
+            <p class="font-medium text-xs">oblik</p>
+            <span class="font-bold text-lg">loremipsum</span>
+          </div>
+          <div class="flex flex-col gap-2 text-xs p-2">
+            <a href="#"><i class="fa-solid fa-heart hover:text-red-400 transition"></i></a>
+            <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+          </div>
+        </div>
+        <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+          <img src="img/sur2.jpg" class="w-16 h-16 rounded-l-lg" alt="obloga">
+          <div class="flex flex-col gap-1">
+            <p class="font-medium text-xs">lazerdimon</p>
+            <span class="font-bold text-lg">tappyysound</span>
+          </div>
+          <div class="flex flex-col gap-2 text-xs p-2">
+            <a href="#"><i class="fa-solid fa-heart hover:text-red-400 transition"></i></a>
+            <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+          </div>
+        </div>
+        <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+          <img src="img/sound.png" class="w-16 h-16 rounded-l-lg" alt="obloga">
+          <div class="flex flex-col gap-1">
+            <p class="font-medium text-xs">lilmouse</p>
+            <span class="font-bold text-lg">unknown</span>
+          </div>
+          <div class="flex flex-col gap-2 text-xs p-2">
+            <a href="#"><i class="fa-solid fa-heart hover:text-red-400 transition"></i></a>
+            <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+          </div>
+        </div>
+        <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+          <img src="img/cat2.jpg" class="w-16 h-16 rounded-l-lg" alt="obloga">
+          <div class="flex flex-col gap-1">
+            <p class="font-medium text-xs">ogtimmy</p>
+            <span class="font-bold text-lg">#loveaydariso</span>
+          </div>
+          <div class="flex flex-col gap-2 text-xs p-2">
+            <a href="#"><i class="fa-solid fa-heart hover:text-red-400 transition"></i></a>
+            <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+          </div>
+        </div>
+        <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+          <img src="img/rhino.jpg" class="w-16 h-16 rounded-l-lg" alt="obloga">
+          <div class="flex flex-col gap-1">
+            <p class="font-medium text-xs">bigbob</p>
+            <span class="font-bold text-lg">firsttake</span>
+          </div>
+          <div class="flex flex-col gap-2 text-xs p-2">
+            <a href="#"><i class="fa-solid fa-heart hover:text-red-400 transition"></i></a>
+            <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-gray-200 mt-12">
+      <div class="relative mx-auto max-w-screen-xl px-4 pb-8  sm:px-6 lg:px-8 lg:pt-24">
+
+        <div class="lg:flex lg:items-center lg:justify-between">
+          <div>
+            <div class="flex justify-center font-medium text-xl text-blue-600 lg:justify-start">
+              <h2>Звукс</h2>
+            </div>
+
+            <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left">
+              Онлайн платформа для распространения оцифрованной звуковой информации с функциями социальной сети.
+            </p>
+          </div>
+
+          <ul
+            class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
+          >
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="pages/profile.html">Профиль</a>
+            </li>
+
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="pages/chats.html">Чаты</a>
+            </li>
+
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="pages/friends.html">Друзья</a>
+            </li>
+
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="index.html">Музыка</a>
+            </li>
+          </ul>
+        </div>
+
+        <p class="mt-12 text-center text-sm text-gray-500 lg:text-right">
+          Copyright &copy; 2024. All rights reserved.
+        </p>
+        <p class="mt-2 text-center text-sm text-gray-500 lg:text-right">
+          egor.larrr@gmail.com
+        </p>
+      </div>
+    </footer>
+  </div>
+  <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zvuks</title>
+  <link rel="stylesheet" href="./../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>  
+</head>
+<body>
+  <div class="flex flex-col h-screen">
+    <header class="container pt-4 mx-auto flex justify-between ">
+      <h2 class="text-xl font-bold">Звукс</h2>
+      <div class="flex gap-6 text-xl items-center">
+        <a href="./../index.html" class="hidden sm:block"><i class="fa-solid fa-music hover:text-blue-500 transition"></i></a>
+        <a href="friends.html" class="hidden sm:block"><i class="fa-solid fa-user-group hover:text-blue-500 transition"></i></a>
+        <a href="chats.html" class="hidden sm:block"><i class="fa-regular fa-comment hover:text-blue-500 transition"></i></a>
+        <div x-data="{ isActive: false }" class="relative">
+          <div class="inline-flex items-center overflow-hidden rounded-md bg-white">
+            <a
+              href="#"
+              class="text-sm/none text-gray-600 hover:bg-gray-50 hover:text-gray-700"
+            >
+              <img
+              x-on:click="isActive = !isActive" 
+              class="rounded-full h-10 w-10" src="./../img/hamster.jpg" alt="">
+            </a>
+          </div>
+
+          <div
+            class="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg"
+            role="menu"
+            x-cloak
+            x-transition
+            x-show="isActive"
+            x-on:click.away="isActive = false"
+            x-on:keydown.escape.window="isActive = false"
+          >
+            <div class="p-2">
+              <a
+                href="profile.html"
+                class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                role="menuitem"
+              >
+                Профиль
+              </a>
+
+              <a
+                href="admin.html"
+                class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                role="menuitem"
+              >
+                Админ-панель
+              </a>
+
+              <a
+              href="./../index.html"
+              class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              role="menuitem"
+            >
+              Музыка
+            </a>
+
+              <a
+              href="friends.html"
+              class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              role="menuitem"
+            >
+              Друзья
+            </a>
+
+              <a
+              href="chats.html"
+              class="block sm:hidden rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              role="menuitem"
+            >
+              Чаты
+            </a>
+
+              <a
+              href="login.html"
+              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:text-white  hover:bg-red-400 transition"
+              role="menuitem"
+            >
+              Выйти
+            </a>
+            </div>
+          </div>
+        </div>
+        </a>
+      </div>
+    </header>
+    <main class="container mx-auto mt-8 flex-grow">
+      <h2 class="text-3xl font-semibold text-center md:text-left">Профиль</h2>
+
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-24 mt-6">
+        <div class="flex flex-col gap-2">
+          <img src="./../img/hamster.jpg" alt="user" class="w-80 h-72 rounded-lg border border-black">
+          <span>Дата создания: 02.11.2023</span>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h3 class="text-2xl font-semibold">Username</h3>
+          <div class="flex flex-col gap-0.5 font-medium">
+            <a href="friends.html" class="hover:text-blue-500 transition">Друзья</a>
+            <a href="./../index.html" class="hover:text-blue-500 transition">Моя музыка</a>
+          </div>
+
+        </div>
+        <div class="flex flex-col gap-4">
+          <h3 class="text-2xl font-semibold">Моя музыка</h3>
+          <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+            <img src="./../img/cat2.jpg" class="w-16 h-16 rounded-l-lg" alt="obloga">
+            <div class="flex flex-col gap-1">
+              <p class="font-medium text-xs">ogtimmy</p>
+              <span class="font-bold text-lg">#loveaydariso</span>
+            </div>
+            <div class="flex flex-col gap-2 text-xs p-2">
+              <a href="#"><i class="fa-solid fa-heart text-red-400 transition"></i></a>
+              <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+            </div>
+          </div>
+          <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+            <img src="./../img/cat2.jpg" class="w-16 h-16 rounded-l-lg" alt="obloga">
+            <div class="flex flex-col gap-1">
+              <p class="font-medium text-xs">ogtimmy</p>
+              <span class="font-bold text-lg">#loveaydariso</span>
+            </div>
+            <div class="flex flex-col gap-2 text-xs p-2">
+              <a href="#"><i class="fa-solid fa-heart text-red-400 transition"></i></a>
+              <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+            </div>
+          </div>
+          <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+            <img src="./../img/cat2.jpg" class="w-16 h-16 rounded-l-lg" alt="obloga">
+            <div class="flex flex-col gap-1">
+              <p class="font-medium text-xs">ogtimmy</p>
+              <span class="font-bold text-lg">#loveaydariso</span>
+            </div>
+            <div class="flex flex-col gap-2 text-xs p-2">
+              <a href="#"><i class="fa-solid fa-heart text-red-400 transition"></i></a>
+              <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+            </div>
+          </div>
+          <div class="flex justify-between items-center bg-gray-200 hover:bg-gray-300 transition rounded-lg w-60 cursor-pointer">
+            <img src="./../img/cat2.jpg" class="w-16 h-16 rounded-l-lg" alt="obloga">
+            <div class="flex flex-col gap-1">
+              <p class="font-medium text-xs">ogtimmy</p>
+              <span class="font-bold text-lg">#loveaydariso</span>
+            </div>
+            <div class="flex flex-col gap-2 text-xs p-2">
+              <a href="#"><i class="fa-solid fa-heart text-red-400 transition"></i></a>
+              <a href="#"><i class="fa-solid fa-share hover:text-blue-300 transition"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+    <footer class="bg-gray-200 mt-12">
+      <div class="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">
+    
+        <div class="lg:flex lg:items-center lg:justify-between">
+          <div>
+            <div class="flex justify-center font-medium text-xl text-blue-600 lg:justify-start">
+              <h2>Звукс</h2>
+            </div>
+    
+            <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left">
+              Онлайн платформа для распространения оцифрованной звуковой информации с функциями социальной сети.
+            </p>
+          </div>
+    
+          <ul
+            class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
+          >
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="profile.html">Профиль</a>
+            </li>
+    
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="chats.html">Чаты</a>
+            </li>
+    
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="friends.html">Друзья</a>
+            </li>
+    
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="index.html">Музыка</a>
+            </li>
+          </ul>
+        </div>
+    
+        <p class="mt-12 text-center text-sm text-gray-500 lg:text-right">
+          Copyright &copy; 2024. All rights reserved.
+        </p>
+        <p class="mt-2 text-center text-sm text-gray-500 lg:text-right">
+          egor.larrr@gmail.com
+        </p>
+      </div>
+    </footer>  
+  </div>
+</body>
+</html>

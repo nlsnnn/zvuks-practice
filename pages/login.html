@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zvuks</title>
+  <link rel="stylesheet" href="./../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>  
+</head>
+<body>
+  <header class="container pt-4 mx-auto flex justify-center">
+    <h2 class="text-xl font-bold">Logo</h2>
+  </header>
+  <main class="container mx-auto mt-8">
+    <h2 class="text-center text-3xl font-semibold">Вход</h2>
+
+    <form class="flex flex-col items-center justify-center gap-6 mt-8">
+      <div class="flex flex-col gap-2">
+        <label>Имя пользователя</label>
+        <input type="text" class="p-2 border border-blue-600 outline-none rounded-lg">
+      </div>
+      <div class="flex flex-col gap-2">
+        <label>Пароль</label>
+        <input type="password" class="p-2 border border-blue-600 outline-none rounded-lg">
+      </div>
+      <p>Нет аккаунта? <a href="register.html" class="text-blue-600 hover:text-blue-400 transition">Регистрация</a></p>
+      <a href="profile.html" class="py-2 px-20 font-medium rounded bg-blue-500  text-white hover:bg-white hover:text-blue-500 hover:border hover:border-blue-500 transition">Войти</a>
+    </form>
+  </main>
+</body>
+</html>
